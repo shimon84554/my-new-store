@@ -1,51 +1,22 @@
-import { create } from 'zustand';
+ import *as allProducts from '../api/products.js'
 
 
-const useTodoStore = create(set => ({
-    toDo: [],
-    addToDo: (newAsk) => { set(state => ({ toDo: [...state.toDo, newAsk ] })) },
-    tempToDo:'',
-    setTempToDo:(newText)=>{set(state =>(
-
-        {tempToDo:newText}
-    ))}
-
-}))
-
-function Products() {
-
-const toDoArr = useTodoStore(state => state.toDo);
-const addToDo = useTodoStore(state => state.addToDo);
-const tempToDo = useTodoStore(state => state.tempToDo);
-const setTempToDo = useTodoStore(state => state.setTempToDo);
-const handlCange = (e)=>{
-setTempToDo(e.target.value);
-}
-
-const handlSubmit = (e)=>{
-    e.preventDefault();
-    if(tempToDo === '')return ;
-    addToDo({todo:tempToDo,id:Date.now()});
-    setTempToDo('');
-}
-
-
-    return (
-        <div >
-            <form onSubmit={handlSubmit}>
-            <input 
-            placeholder='הכנס משימה'
-            value={tempToDo}
-            onChange={handlCange}
-            />
-            <button type='submit'>הוסף</button>
-            </form>
-
-          <ul>
-            {toDoArr.map(toDo =>(<li key={toDo.id}>{toDo.todo}</li>))}
-          </ul>
+ function creatCard (product){
+    return(
+       <div product-aontainer>
+        <h3 className='product-title'>{product.title}</h3>
+        <img className='product-image' src={product.previewImage} alt="previewImage" />
+        <div className='btn&price'>
+        <button className='btn-aad-to-cart'></button>
+        <span className='product-price'>{product.price}</span>
         </div>
+       </div> 
     )
-}
+ }
 
-export default Products;
+ function gimredAllProducts (){
+    allProducts.default.forEach(pro =>{
+        creatCard(pro)
+    })
+ }
+
