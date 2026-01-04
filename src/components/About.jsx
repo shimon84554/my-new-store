@@ -1,9 +1,9 @@
-function About (){
-    return(
-        <div>
-            <p>this is about</p>
-        </div>
-    )
+function About() {
+  return (
+    <div>
+      <p>this is about</p>
+    </div>
+  );
 }
 
 export default About;

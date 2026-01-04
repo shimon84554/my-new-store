@@ -9,10 +9,10 @@ import Login from './components/Login';
 
 function App() {
 return (
-  <div id='contener-nav'>
+  <div id='container-nav'>
   <nav id='nav'>
     <Link to="/">home </Link>
-    <Link to="/About">about </Link>
+    <Link to="/About">About </Link>
     <Link to="/Products">Products </Link>
     <Link to="/Cart">Cart </Link>
     <Link to="/Login">Login </Link>
