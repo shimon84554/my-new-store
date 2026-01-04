@@ -1,9 +1,5 @@
 import LogoMain from '../assets/LogoMain.png'
 import { Route, Routes ,Link} from 'react-router-dom';
-import About from './About';
-import Products from './Products';
-import Cart from './cart';
-import Login from './Login';
 
 function Home() {
     return (
